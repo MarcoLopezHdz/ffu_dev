@@ -269,16 +269,6 @@ public class DataQueryHandler
 					    {
 					       e.printStackTrace();
 					    }
-					}else {
-						try
-					    {
-					        redis.set(dto.getTag(), "noError");
-					        redis.set(dto.getTag().concat("_TimestampH"),dtPoint.getTimeStamp()+"");
-					    }
-					    catch (JedisConnectionException e)
-					    {
-					       e.printStackTrace();
-					    }
 					}
 				}else{
 					log.info("NO DATA POINTS IN THE INTERVAL FOR THE TAG  "+dto.getTag());
@@ -439,16 +429,6 @@ public class DataQueryHandler
 				            	this.sendEmailSF(gateway,sensorId);
 				            redis.set(dto.getTag().concat("_emailSF"),"1");
 				            }
-					    }
-					    catch (JedisConnectionException e)
-					    {
-					       e.printStackTrace();
-					    }
-					}else {
-						try
-					    {
-					        redis.set(dto.getTag(), "noError");
-					        redis.set(dto.getTag().concat("_TimestampS"),dtPoint.getTimeStamp()+"");
 					    }
 					    catch (JedisConnectionException e)
 					    {
